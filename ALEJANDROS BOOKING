@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro's Booking - Accesorios para Celular | Distribuidor LDNIO Ecuador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #0066CC;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #00d4ff;
+            --success: #00c851;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .whatsapp-btn {
+            background: var(--success);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,200,81,0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,200,81,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #0099ff 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: move 20s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: white;
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge.discount {
+            background: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Mayorista Banner */
+        .mayorista-banner {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .mayorista-banner span {
+            color: white;
+            font-size: 1.5rem;
+            background: var(--secondary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+
+        /* Products Section */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Category Filter */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            color: var(--dark);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,107,0,0.3);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 3px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            transition: transform 0.3s;
+            padding: 10px;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-badge.new {
+            background: var(--success);
+        }
+
+        .product-badge.hot {
+            background: #ff4757;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-code {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+
+        .product-specs {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .price-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-row:last-child {
+            margin-bottom: 0;
+            padding-top: 0.5rem;
+            border-top: 2px dashed #ccc;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .price.mayorista {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        .savings {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .order-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, #0099ff 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .order-btn:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff8c00 100%);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255,107,0,0.3);
+        }
+
+        /* Catalog Viewer */
+        .catalog-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .catalog-item {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .catalog-item:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .catalog-item p {
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-top: 5px solid var(--secondary);
+        }
+
+        .calculator {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .calc-input {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .calc-input label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .calc-input input, .calc-input select {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .calc-input input:focus, .calc-input select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0099ff 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .calc-result h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .big-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .phone-display {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f1e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            background: rgba(255,107,0,0.2);
+        }
+
+        /* Modal for images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .products-grid { grid-template-columns: 1fr; }
+            .logo img { height: 40px; }
+            .logo-main { font-size: 1.2rem; }
+            .logo-sub { font-size: 0.7rem; }
+            .phone-display { font-size: 1.5rem; }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <!-- REEMPLAZA ESTO CON TU LOGO -->
+                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary), var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">ALEJANDRO'S</span>
+                    <span class="logo-sub">BOOKING</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="https://wa.me/593998469225" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Pedir Ahora
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Bienvenido a <span>Alejandro's Booking</span></h1>
+            <p>Distribuidor Oficial LDNIO Ecuador. Importadores directos con garantía de 1 año. Tecnología de carga rápida al mejor precio del mercado.</p>
+            <div class="badge-container">
+                <div class="badge">
+                    <i class="fas fa-shipping-fast"></i>
+                    Envíos a todo el país
+                </div>
+                <div class="badge discount">
+                    <i class="fas fa-percentage"></i>
+                    -10% DESDE 20 UNIDADES
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    Garantía 1 Año
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mayorista Banner -->
+    <div class="mayorista-banner">
+        🏷️ DESCUENTO MAYORISTA: Compra <span>20+ unidades</span> y obtén <span>10% DE DESCUENTO</span> en todo tu pedido • Precios incluyen IVA
+    </div>
+
+    <!-- Products Section -->
+    <section class="container" id="productos">
+        <div class="section-title">
+            <h2>Catálogo de Productos LDNIO</h2>
+            <p>Precios por unidad. Descuento automático del 10% en compras desde 20 unidades mixtas</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('audio')">Audífonos</button>
+            <button class="filter-btn" onclick="filterProducts('cables')">Cables</button>
+            <button class="filter-btn" onclick="filterProducts('cargadores')">Cargadores</button>
+            <button class="filter-btn" onclick="filterProducts('powerbank')">Power Banks</button>
+            <button class="filter-btn" onclick="filterProducts('auto')">Auto</button>
+            <button class="filter-btn" onclick="filterProducts('smartwatch')">Smartwatches</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            
+            <!-- AUDÍFONOS -->
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-03.jpg (muestra audífonos LD-T05) -->
+                    <img src="imagenes/ldnio_pag-03.jpg" alt="Audífonos LD-T05" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2216%22%3EAudífonos LD-T05%3C/text%3E%3C/svg%3E'">
+                    <span class="product-badge hot">MÁS VENDIDO</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15576</div>
+                    <h3 class="product-title">Audífonos LD-T05 LDNIO</h3>
+                    <p class="product-specs">36H de reproducción • Bluetooth 5.3 • Cancelación de ruido • Case con batería</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$25.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$22.50 <span class="savings">AHORRA $2.50</span></span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15576', 'Audífonos LD-T05', 25)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-02.jpg -->
+                    <img src="imagenes/ldnio_pag-02.jpg" alt="Audífonos LD-T01" onerror="this.style.display='none'">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #999; font-size: 4rem; display: none;" class="fallback-icon"><i class="fas fa-headphones"></i></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 14989</div>
+                    <h3 class="product-title">Audífonos LD-T01 LDNIO</h3>
+                    <p class="product-specs">20H reproducción • Case con batería • Sonido estéreo Hi-Fi</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$25.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$22.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('14989', 'Audífonos LD-T01', 25)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-02.jpg o 03 -->
+                    <img src="imagenes/ldnio_pag-02.jpg" alt="Audífonos LD-T02" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 14990</div>
+                    <h3 class="product-title">Audífonos LD-T02 LDNIO</h3>
+                    <p class="product-specs">20H escuchando • Bluetooth 5.0 • Micrófono integrado</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$25.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$22.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('14990', 'Audífonos LD-T02', 25)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-03.jpg -->
+                    <img src="imagenes/ldnio_pag-03.jpg" alt="Audífonos LD-T03" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15346</div>
+                    <h3 class="product-title">Audífonos LD-T03 LDNIO</h3>
+                    <p class="product-specs">20H batería • Sonido envolvente • Control táctil</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$25.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$22.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15346', 'Audífonos LD-T03', 25)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-03.jpg -->
+                    <img src="imagenes/ldnio_pag-03.jpg" alt="Audífonos LD-T06" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15577</div>
+                    <h3 class="product-title">Audífonos LD-T06 LDNIO</h3>
+                    <p class="product-specs">36H escuchando • Diseño ergonómico • Bajos profundos</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$27.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$24.30</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15577', 'Audífonos LD-T06', 27)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-03.jpg -->
+                    <img src="imagenes/ldnio_pag-03.jpg" alt="Audífonos LD-T07" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15578</div>
+                    <h3 class="product-title">Audífonos LD-T07 LDNIO</h3>
+                    <p class="product-specs">36H batería • Resistente al agua IPX4 • Estuche compacto</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$27.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$24.30</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15578', 'Audífonos LD-T07', 27)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T08/T09" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15661</div>
+                    <h3 class="product-title">Audífonos LD-T08 LDNIO</h3>
+                    <p class="product-specs">Alta fidelidad • Conexión estable • Controles intuitivos</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$27.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$24.30</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15661', 'Audífonos LD-T08', 27)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T09" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15662</div>
+                    <h3 class="product-title">Audífonos LD-T09 LDNIO</h3>
+                    <p class="product-specs">Premium • Cancelación activa • Audio HD</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$30.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$27.00</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15662', 'Audífonos LD-T09', 30)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T10" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15763</div>
+                    <h3 class="product-title">Audífonos LD-T10 LDNIO</h3>
+                    <p class="product-specs">7H reproducción • 5H llamada • 30H standby • Económico</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$18.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$16.20</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15763', 'Audífonos LD-T10', 18)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T11" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15840</div>
+                    <h3 class="product-title">Audífonos LD-T11 LDNIO</h3>
+                    <p class="product-specs">7H escuchando • 28H standby • Diseño moderno</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$28.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$25.20</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15840', 'Audífonos LD-T11', 28)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T12" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15862</div>
+                    <h3 class="product-title">Audífonos LD-T12 LDNIO</h3>
+                    <p class="product-specs">5H música • Ultra ligeros • Calidad premium</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$34.99</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$31.49</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15862', 'Audífonos LD-T12', 34.99)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-T13" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15863</div>
+                    <h3 class="product-title">Audífonos LD-T13 LDNIO</h3>
+                    <p class="product-specs">5H música • Estuche premium • Sonido cristalino</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$20.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$18.00</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15863', 'Audífonos LD-T13', 20)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos H01" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15956</div>
+                    <h3 class="product-title">Audífonos H01 BLU</h3>
+                    <p class="product-specs">5H música • Marca BLU • Excelente calidad precio</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$37.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$33.30</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15956', 'Audífonos H01 BLU', 37)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-04.jpg -->
+                    <img src="imagenes/ldnio_pag-04.jpg" alt="Audífonos LD-N01" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15768</div>
+                    <h3 class="product-title">Audífonos LD-N01 LDNIO</h3>
+                    <p class="product-specs">Diseño deportivo • Resistente al sudor • Micrófono integrado</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$13.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15768', 'Audífonos LD-N01', 15)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-05.jpg -->
+                    <img src="imagenes/ldnio_pag-05.jpg" alt="Audífonos LD-N02" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15769</div>
+                    <h3 class="product-title">Audífonos LD-N02 Deporte</h3>
+                    <p class="product-specs">200mAh • 16H standby • 2H llamada • Ideal para deporte</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$18.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$16.20</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15769', 'Audífonos LD-N02 Deporte', 18)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="audio">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-05.jpg -->
+                    <img src="imagenes/ldnio_pag-05.jpg" alt="Audífonos LD-N03" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15965</div>
+                    <h3 class="product-title">Audífonos LD-N03 Deporte</h3>
+                    <p class="product-specs">400mAh • 40H standby • 4H llamada • Resistente al sudor</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$18.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$16.20</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15965', 'Audífonos LD-N03 Deporte', 18)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- SMARTWATCHES -->
+            <div class="product-card fade-in" data-category="smartwatch">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-05.jpg (smartwatches) -->
+                    <img src="imagenes/ldnio_pag-05.jpg" alt="Smart Watch SW01" onerror="this.style.display='none'">
+                    <span class="product-badge new">NUEVO</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15864</div>
+                    <h3 class="product-title">Smart Watch SW01 LDNIO</h3>
+                    <p class="product-specs">Pantalla AMOLED 1.58" • IP68 • Ritmo cardíaco • Oxígeno en sangre</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$54.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$48.60 <span class="savings">AHORRA $5.40</span></span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15864', 'Smart Watch SW01', 54)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="smartwatch">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-05.jpg -->
+                    <img src="imagenes/ldnio_pag-05.jpg" alt="Smart Watch SW02" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15958</div>
+                    <h3 class="product-title">Smart Watch SW02 LDNIO</h3>
+                    <p class="product-specs">Bluetooth calling • Monitor sueño • Múltiples deportes</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$52.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$46.80</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15958', 'Smart Watch SW02', 52)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="smartwatch">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-05.jpg -->
+                    <img src="imagenes/ldnio_pag-05.jpg" alt="Smart Watch SW03" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15797</div>
+                    <h3 class="product-title">Smart Watch SW03 LDNIO</h3>
+                    <p class="product-specs">Económico • Notificaciones • Contador pasos • Económico</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$40.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$36.00</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15797', 'Smart Watch SW03', 40)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- CABLES -->
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-06.jpg o 07 (cables) -->
+                    <img src="imagenes/ldnio_pag-06.jpg" alt="Cable LS841" onerror="this.style.display='none'">
+                    <span class="product-badge hot">POPULAR</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15277-15279</div>
+                    <h3 class="product-title">Cable LDNIO LS841 25W 1MT</h3>
+                    <p class="product-specs">Carga rápida 25W • Disponible: Samsung / Tipo C / iPhone</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$2.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$1.80 <span class="savings">AHORRA $0.20</span></span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15277', 'Cable LS841 25W', 2)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-07.jpg -->
+                    <img src="imagenes/ldnio_pag-07.jpg" alt="Cable LS441" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 14014-14016</div>
+                    <h3 class="product-title">Cable LDNIO LS441 2.4A 1MT Goma</h3>
+                    <p class="product-specs">Reforzado en goma • 2.4A • Colores disponibles • 1 metro</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$4.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$3.60</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('14014', 'Cable LS441 Goma', 4)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-08.jpg -->
+                    <img src="imagenes/ldnio_pag-08.jpg" alt="Cable LS601" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 14846-14818</div>
+                    <h3 class="product-title">Cable LDNIO LS601 30W 1MT</h3>
+                    <p class="product-specs">Carga rápida 30W • Samsung / Tipo C • Alta durabilidad</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$3.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$2.70</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('14846', 'Cable LS601 30W', 3)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-10.jpg o 11 (cables 100W) -->
+                    <img src="imagenes/ldnio_pag-10.jpg" alt="Cable LC601 100W" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15580</div>
+                    <h3 class="product-title">Cable LDNIO LC601 100W Tipo C</h3>
+                    <p class="product-specs">Carga ultra rápida 100W • Tipo C a Tipo C • 1 metro</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$4.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15580', 'Cable LC601 100W', 5)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-11.jpg -->
+                    <img src="imagenes/ldnio_pag-11.jpg" alt="Cable LC631 65W" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15581</div>
+                    <h3 class="product-title">Cable LDNIO LC631 65W Tipo C</h3>
+                    <p class="product-specs">Carga rápida 65W • Tipo C a Tipo C • 1 metro</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$4.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15581', 'Cable LC631 65W', 5)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-11.jpg -->
+                    <img src="imagenes/ldnio_pag-11.jpg" alt="Cable LC631 100W" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15772</div>
+                    <h3 class="product-title">Cable LDNIO LC631 100W Tipo C</h3>
+                    <p class="product-specs">Carga ultra rápida 100W • Tipo C a Tipo C • 1 metro</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$6.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$5.40</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15772', 'Cable LC631 100W', 6)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-11.jpg -->
+                    <img src="imagenes/ldnio_pag-11.jpg" alt="Cable LC631 iPhone" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15720</div>
+                    <h3 class="product-title">Cable LDNIO LC631 30W Tipo C a iPhone</h3>
+                    <p class="product-specs">Para iPhone • 30W carga rápida • Certificado</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$4.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15720', 'Cable LC631 30W iPhone', 5)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-14.jpg (cable 3 en 1) -->
+                    <img src="imagenes/ldnio_pag-14.jpg" alt="Cable LC94C 3 en 1" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 12620</div>
+                    <h3 class="product-title">Cable LDNIO LC94C 3 en 1 100W</h3>
+                    <p class="product-specs">V8 + iPhone + Tipo C • 100W • Un cable para todo</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$9.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$8.10</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('12620', 'Cable LC94C 3 en 1 100W', 9)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cables">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-14.jpg (MFI) -->
+                    <img src="imagenes/ldnio_pag-14.jpg" alt="Cable MFI-01" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15438</div>
+                    <h3 class="product-title">Cable MFI-01 Tipo C a iPhone 1MT</h3>
+                    <p class="product-specs">Certificado MFi Apple • 1 metro • Calidad premium</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$11.50</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$10.35</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15438', 'Cable MFI-01 iPhone', 11.5)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARGADORES PARED -->
+            <div class="product-card fade-in" data-category="cargadores">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-20.jpg o 21 (cargadores) -->
+                    <img src="imagenes/ldnio_pag-20.jpg" alt="Cargador Q1245W" onerror="this.style.display='none'">
+                    <span class="product-badge">POTENTE</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15950</div>
+                    <h3 class="product-title">Cargador LDNIO Q1245W GaN 45W</h3>
+                    <p class="product-specs">Tecnología GaN • 1 Tipo C + 1 USB • Carga súper rápida</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$14.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$12.60 <span class="savings">AHORRA $1.40</span></span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15950', 'Cargador Q1245W 45W', 14)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cargadores">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-21.jpg o 22 -->
+                    <img src="imagenes/ldnio_pag-21.jpg" alt="Cargador Q8100W" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15951</div>
+                    <h3 class="product-title">Cargador LDNIO Q8100W GaN 100W</h3>
+                    <p class="product-specs">3 puertos Tipo C + 1 USB • Para laptop y celular • Incluye cable</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$38.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$34.20 <span class="savings">AHORRA $3.80</span></span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15951', 'Cargador Q8100W 100W', 38)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cargadores">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-20.jpg -->
+                    <img src="imagenes/ldnio_pag-20.jpg" alt="Cargador H1209C" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product-code">Código: 15332</div>
+                    <h3 class="product-title">Cargador LDNIO H1209C PD 20W</h3>
+                    <p class="product-specs">Compacto • Power Delivery 20W • Ideal iPhone • Económico</p>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="price-label">Precio Unitario:</span>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Desde 20 unids:</span>
+                            <span class="price mayorista">$4.50</span>
+                        </div>
+                    </div>
+                    <button class="order-btn" onclick="orderProduct('15332', 'Cargador H1209C 20W', 5)">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in" data-category="cargadores">
+                <div class="product-image">
+                    <!-- IMAGEN DEL PDF: ldnio_pag-20.jpg -->
+                    <img src="imagenes/ldnio_pag-20.jpg" alt="Cargador Q533W" onerror="this.style.display='none'">
+                </div>
+                <div class="product-info">
+                    <div class="product
